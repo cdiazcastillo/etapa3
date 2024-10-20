@@ -1,28 +1,29 @@
-<?php
-require 'conexion.php';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nombre_categoria = $_POST['nombre_categoria'];
-    $descripcion = $_POST['descripcion'];
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrar Categorías</title>
+    <style>
+        /* Same styles as in index.php */
+    </style>
+</head>
+<body>
+<div class="navbar">
+    <a href="index.php">Ramas</a>
+    <a href="categorias.php">Categorías</a>
+    <a href="series.php">Series</a>
+    <a href="alumnos.php">Alumnos</a>
+    <a href="apoderados.php">Apoderados</a>
+    <a href="profesores.php">Profesores</a>
+    <a href="asistencias.php">Asistencias</a>
+    <a href="form_agregar.php">Agregar</a>
+</div>
 
-    $sql = "INSERT INTO Categoria (nombre_categoria, descripcion) VALUES (?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param('ss', $nombre_categoria, $descripcion);
-
-    if ($stmt->execute()) {
-        echo "Categoría agregada exitosamente";
-    } else {
-        echo "Error al agregar categoría: " . $stmt->error;
-    }
-}
-?>
-
-<form action="categorias.php" method="POST">
-    <label for="nombre_categoria">Nombre Categoría:</label>
-    <input type="text" name="nombre_categoria" required><br>
-
-    <label for="descripcion">Descripción:</label>
-    <textarea name="descripcion" required></textarea><br>
-
-    <input type="submit" value="Agregar Categoría">
-</form>
+<div class="container">
+    <h2>Categorías Existentes</h2>
+    <!-- Similar table structure as index.php -->
+</div>
+</body>
+</html>
